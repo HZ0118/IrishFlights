@@ -26,6 +26,7 @@
             <ul id="mainNav">
                 <li @if(title =="Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                 <li @if(title =="Flight"){class="active"}><a href="@routes.FlightsController.flights()">Flight</a></li>
+                <li @if(title =="Aircraft"){class="active"}><a href="@routes.AircraftController.aircrafts()">Aircraft</a></li>
                 <li @if(title =="Transaction"){class="active"}>
                     <a href="@routes.ShoppingController.showBasket()">My Bookings
                         <span class="glyphicon glyphicon-shopping-cart"></span></a></li>

@@ -32,6 +32,12 @@ GET     /emptyBasket                        controllers.ShoppingController.empty
 GET     /placeOrder                         controllers.ShoppingController.placeOrder()
 GET     /viewOrder/:id                      controllers.ShoppingController.viewOrder(id: Long)
 
+# Aircrafts
+GET     /aircrafts                          controllers.AircraftController.aircrafts()
+GET     /addAircraft                        controllers.AircraftController.addAircraft()
+POST    /addAircraftSubmit                  controllers.AircraftController.addAircraftSubmit()
+GET     /deleteAircraft/:id                         controllers.AircraftController.deleteAircraft(id: Long)
+GET     /updateAircraft/:id                         controllers.AircraftController.updateAircraft(id: Long)
 
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count

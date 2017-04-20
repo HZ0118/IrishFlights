@@ -4,7 +4,7 @@
 # --- !Ups
 
 create table aircraft (
-  aircraft_id                   integer not null,
+  aircraft_id                   bigint not null,
   aircraft_number               varchar(255),
   capacity                      integer,
   constraint pk_aircraft primary key (aircraft_id)
@@ -25,7 +25,7 @@ create table flight_schedule (
   departure_time                varchar(255),
   arrival_time                  varchar(255),
   price                         double,
-  aircraft_aircraft_id          integer,
+  aircraft_aircraft_id          bigint,
   routes_route_id               integer,
   constraint pk_flight_schedule primary key (flight_id)
 );

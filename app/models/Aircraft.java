@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
 @Entity
 public class Aircraft extends Model {
     @Id
-    private int aircraft_ID;
+    private Long aircraft_ID;
     private String aircraft_number;
     private int capacity;
 
@@ -21,14 +21,14 @@ public class Aircraft extends Model {
     public Aircraft (){
     }
 
-    public Aircraft(int id, String number, int capacity, List<FlightSchedule> flight_schedule){
+    public Aircraft(Long id, String number, int capacity, List<FlightSchedule> flight_schedule){
         this.aircraft_ID = id;
         this.aircraft_number = number;
         this.capacity = capacity;
         this.flight_schedule = flight_schedule;
     }
 
-    public static Finder<Integer,Aircraft> find = new Finder<Integer,Aircraft>(Aircraft.class);
+    public static Finder<Long,Aircraft> find = new Finder<Long,Aircraft>(Aircraft.class);
 
     public static List<Aircraft> findAll(){
         return Aircraft.find.all();
@@ -39,12 +39,12 @@ public class Aircraft extends Model {
 
         // Get all aircrafts from the DB and add to the options Hash map
         for(Aircraft a: Aircraft.findAll()) {
-            options.put(Integer.toString(a.getAircraftID()), a.getAircraftNumber());
+            options.put(Long.toString(a.getAircraftID()), a.getAircraftNumber());
         }
         return options;
     }
 
-    public int getAircraftID(){
+    public Long getAircraftID(){
         return aircraft_ID;
     }
 
@@ -56,7 +56,7 @@ public class Aircraft extends Model {
         return capacity;
     }
 
-    public void setAircraftID(int id){
+    public void setAircraftID(Long id){
         this.aircraft_ID = id;
     }
 

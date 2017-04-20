@@ -16,11 +16,11 @@ import models.FlightSchedule;
 import models.users.User;
 
 public class FlightsController extends Controller {
-    private FormFactory FormFactory;
+    private FormFactory formFactory;
 
     @Inject
     public FlightsController(FormFactory f){
-        this.FormFactory = f;
+        this.formFactory = f;
     }
 
     public Result flights() {
@@ -29,7 +29,7 @@ public class FlightsController extends Controller {
     }
 
     public Result addFlight(){
-        Form<FlightSchedule> addFlightForm = FormFactory.form(FlightSchedule.class);
+        Form<FlightSchedule> addFlightForm = formFactory.form(FlightSchedule.class);
         return ok(addFlight.render(addFlightForm, User.getUserById(session().get("email"))));
     }
 
@@ -37,7 +37,7 @@ public class FlightsController extends Controller {
     @With(AuthAdmin.class)
     @Transactional
     public Result addFlightSubmit(){
-        Form<FlightSchedule> newFlightForm = FormFactory.form(FlightSchedule.class).bindFromRequest();
+        Form<FlightSchedule> newFlightForm = formFactory.form(FlightSchedule.class).bindFromRequest();
         if(newFlightForm.hasErrors()){
             return badRequest(addFlight.render(newFlightForm, User.getUserById(session().get("email"))));
         }
@@ -64,7 +64,7 @@ public class FlightsController extends Controller {
         Form<FlightSchedule> flightForm;
         try{
             f = FlightSchedule.find.byId(id);
-            flightForm = FormFactory.form(FlightSchedule.class).fill(f);
+            flightForm = formFactory.form(FlightSchedule.class).fill(f);
         } catch (Exception ex) {
             return badRequest("error");
         }

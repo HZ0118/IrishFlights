@@ -1,0 +1,20 @@
+@import models.users.User
+@import helper._
+
+@(addAircraftForm: Form[models.Aircraft], user: User)
+
+@main("Add Aircraft", user){
+    <h3>Add a new Plane</h3>
+
+    @form(action = routes.AircraftController.addAircraftSubmit(), 'class -> "form-horizontal", 'role -> "form"){
+        @inputText(addAircraftForm("Aircraft Number"), '_label -> "Aircraft Number", 'class -> "form-control")
+        @inputText(addAircraftForm("Capacity"), '_label -> "Capacity", 'class -> "form-control")
+
+        <div class="actions">
+            <input type="submit" value="Add Aircraft" class="btn btn-primary">
+            <a href="@routes.AircraftController.aircrafts()">
+                <button class="btn btn-warning">Cancel</button>
+            </a>
+        </div>
+    }
+}
