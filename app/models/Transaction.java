@@ -3,41 +3,39 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
-import play.data.format.*;
-import play.data.validation.*;
-
 import com.avaje.ebean.*;
+import models.users.Customer;
 
 @Entity
-public class Booking extends Model {
+public class Transaction extends Model {
     private int booking_ID;
     private String booking_date;
     private String departure_date;
     private String ticket_type;
 
     @ManyToOne
-    private Passenger passenger;
+    private Customer customer;
 
     @ManyToOne
     private FlightSchedule flight_schedule;
 
-    public Booking(){
+    public Transaction(){
 
     }
 
-    public Booking(int id, String booking_date, String departure_date, String ticket_type, Passenger passenger, FlightSchedule flight_schedule){
+    public Transaction(int id, String booking_date, String departure_date, String ticket_type, Customer customer, FlightSchedule flight_schedule){
         this.booking_ID = id;
         this.booking_date = booking_date;
         this.departure_date = departure_date;
         this.ticket_type = ticket_type;
-        this.passenger = passenger;
+        this.customer = customer;
         this.flight_schedule = flight_schedule;
     }
 
-    public static Finder<Integer, Booking> find = new Finder<Integer, Booking>(Booking.class);
+    public static Finder<Integer, Transaction> find = new Finder<Integer, Transaction>(Transaction.class);
 
-    public static List<Booking> findAll() {
-        return Booking.find.all();
+    public static List<Transaction> findAll() {
+        return Transaction.find.all();
     }
 
     //get and set booking_ID
@@ -76,13 +74,13 @@ public class Booking extends Model {
         this.ticket_type = ticket_type;
     }
 
-    //get and set passenger
-    public Passenger getPassenger(){
-        return passenger;
+    //get and set customer
+    public Customer getCustomer(){
+        return customer;
     }
 
-    public void setPassenger(Passenger passenger){
-        this.passenger = passenger;
+    public void setCustomer(Customer customer){
+        this.customer = customer;
     }
 
     //get and set flight_schedule

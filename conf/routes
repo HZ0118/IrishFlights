@@ -23,6 +23,16 @@ GET     /updateFlight/:id           controllers.FlightsController.updateFlight(i
 GET     /signup                     controllers.RegistrationController.Registration
 POST    /signupSubmit               controllers.RegistrationController.RegistrationSubmit
 
+# Shopping
+GET     /showBasket                         controllers.ShoppingController.showBasket()
+GET     /addToBasket/:id                    controllers.ShoppingController.addToBasket(id: Integer)
+GET     /addOne/:itemId                     controllers.ShoppingController.addOne(itemId: Long)
+GET     /removeOne/:itemId                  controllers.ShoppingController.removeOne(itemId: Long)
+GET     /emptyBasket                        controllers.ShoppingController.emptyBasket()
+GET     /placeOrder                         controllers.ShoppingController.placeOrder()
+GET     /viewOrder/:id                      controllers.ShoppingController.viewOrder(id: Long)
+
+
 # An example controller showing how to use dependency injection
 GET     /count                      controllers.CountController.count
 # An example controller showing how to write asynchronous code

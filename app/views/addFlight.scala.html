@@ -10,14 +10,22 @@
     @inputText(addFlightForm("flight_date"), '_label -> "Flight Date", 'class -> "form-control")
     @inputText(addFlightForm("departure_time"), '_label -> "Departure Time", 'class -> "form-control")
     @inputText(addFlightForm("arrival_time"), '_label -> "Arrival Time", 'class -> "form-control")
-    @inputText(addFlightForm("aircraft"), '_label -> "Aircraft", 'class -> "form-control")
-    @inputText(addFlightForm("routes"), '_label -> "Route", 'class -> "form-control")
-
-
+    @select(
+      addFlightForm("aircraft.id"),
+      options(Aircraft.options),
+      '_label -> "Aircraft", '_default -> "-- Choose an aircraft --",
+      '_showConstraints -> false, 'class -> "form-control"
+    )
+    @select(
+      addFlightForm("route.id"),
+      options(Route.options),
+      '_label -> "Route", '_default -> "-- Choose a route --",
+      '_showConstraints -> false, 'class -> "form-control"
+    )
 
     <div class="actions">
       <input type="submit" value="Add Flight" class="btn btn-primary">
-      <a href="@routes.HomeController.index()"
+      <a href="@routes.HomeController.index()">
       <button class="btn btn-warning">Cancel</button>
       </a>
     </div>

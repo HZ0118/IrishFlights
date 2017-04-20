@@ -1,4 +1,4 @@
-/*package models.users;
+package models.users;
 
 import java.util.*;
 import javax.persistence.*;
@@ -15,7 +15,7 @@ public class Administrator extends User {
     }
 
     public Administrator(String email, String name, String password){
-        super.(email, name, password);
+        super(email, name, password);
     }
     
-}*/
+}

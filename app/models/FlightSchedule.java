@@ -3,7 +3,6 @@ package models;
 import java.util.*;
 import javax.persistence.*;
 
-import play.data.format.*;
 import play.data.validation.*;
 
 import com.avaje.ebean.*;
@@ -19,6 +18,7 @@ public class FlightSchedule extends Model {
     private String departure_time;
     @Constraints.Required
     private String arrival_time;
+    private double price;
 
     @ManyToOne
     private Aircraft aircraft;
@@ -27,20 +27,21 @@ public class FlightSchedule extends Model {
     private Route routes;
 
     @OneToMany
-    private List<Booking> booking;
+    private List<Transaction> transaction;
 
     public FlightSchedule(){
 
     }
 
-    public FlightSchedule(int id, String flight_date, String departure_time, String arrival_time, Aircraft aircraft, Route routes, List<Booking> booking){
+    public FlightSchedule(int id, String flight_date, String departure_time, String arrival_time, double cost, Aircraft aircraft, Route routes, List<Transaction> transaction){
         this.flight_ID = id;
         this.flight_date = flight_date;
         this.departure_time = departure_time;
         this.arrival_time = arrival_time;
+        this.price = cost;
         this.aircraft = aircraft;
         this.routes = routes;
-        this.booking = booking;
+        this.transaction = transaction;
     }
 
     public static Finder<Integer, FlightSchedule> find = new Finder<Integer,FlightSchedule>(FlightSchedule.class);
@@ -85,6 +86,15 @@ public class FlightSchedule extends Model {
         this.arrival_time = arrival_time;
     }
 
+    //get and set cost
+    public double getPrice(){
+        return price;
+    }
+
+    public void setPrice(double cost){
+        this.price = cost;
+    }
+
     //get and set aircraft
     public Aircraft getAircraft(){
         return aircraft;
@@ -103,13 +113,13 @@ public class FlightSchedule extends Model {
         this.routes = routes;
     }
 
-    //get and set booking
-    public List<Booking> getBooking(){
-        return booking;
+    //get and set transaction
+    public List<Transaction> getTransaction(){
+        return transaction;
     }
 
-    public void setBooking(List<Booking> booking){
-        this.booking = booking;
+    public void setTransaction(List<Transaction> transaction){
+        this.transaction = transaction;
     }
 
 }

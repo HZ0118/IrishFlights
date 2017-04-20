@@ -8,13 +8,22 @@ import play.data.format.*;
 import play.data.validation.*;
 
 @Entity
+
+@Table(name = "user")
+
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+
+@DiscriminatorColumn(name = "role")
+
+@DiscriminatorValue("customer")
+
 public class User extends Model {
 
     @Id
     @Constraints.Required
     private String email;
 
-
+    @Column(insertable = false, updatable = false)
     private String role;
 
     @Constraints.Required
@@ -27,9 +36,9 @@ public class User extends Model {
     public User(){
     }
 
-    public User(String email, String role, String name, String password) {
+    public User(String email, String name, String password) {
         this.email = email;
-        this.role = role;
+        this.role = "customer";
         this.name = name;
         this.password = password;
     }

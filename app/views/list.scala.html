@@ -17,6 +17,7 @@
         <th>Departure Time</th>
         <th>Arrival Time</th>
         <th>Aircraft Number</th>
+        <th>Price</th>
       </tr>
     </thead>
     <tbody>
@@ -29,6 +30,8 @@
           <td>@f.getDepTime</td>
           <td>@f.getArrTime</td>
           <td>@f.getAircraft</td>
+          <td>&euro; @("%.2f".format(f.getPrice))</td>
+          <td><a href = "@routes.ShoppingController.addToBasket(f.getFlightID)"></a></td>
           <td>
             <a href="@routes.FlightsController.updateFlight(f.getFlightID)" class="btn-xs btn-danger">
               <span class="glyphicon glyphicon-pencil"></span></a>
@@ -37,7 +40,12 @@
             <a href="@routes.FlightsController.deleteFlight(f.getFlightID)" class="btn-xs btn-danger" onclick="return confirmDel();">
               <span class="glyphicon glyphicon-trash"></span>
             </a>
-          </td>
+          <td>
+           <td>
+             <a href="@routes.ShoppingController.addToBasket(f.getFlightID)" class="btn btn-default btn-xs"></a>
+           </td>
+
+
         </tr>
       }
     </tbody>

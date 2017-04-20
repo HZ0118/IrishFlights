@@ -15,7 +15,6 @@ public class Route extends Model {
     private String route_code;
     private String airport;
     private String destination;
-    private double cost;
 
     @OneToMany
     private List<FlightSchedule> flight_schedule;
@@ -23,12 +22,11 @@ public class Route extends Model {
     public Route(){
     }
 
-    public Route(int id, String code, String airport, String destination, double cost, List<FlightSchedule> flight_schedule){
+    public Route(int id, String code, String airport, String destination, List<FlightSchedule> flight_schedule){
         this.route_ID = id;
         this.route_code = code;
         this.airport = airport;
         this.destination = destination;
-        this.cost = cost;
         this.flight_schedule = flight_schedule;
     }
 
@@ -37,6 +35,16 @@ public class Route extends Model {
     public static List<Route> findAll(){
 
         return Route.find.all();
+    }
+
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap<>();
+
+        // Get all categories from the DB and add to the options Hash map
+        for(Route r: Route.findAll()) {
+            options.put(Integer.toString(r.getRouteID()), r.getRouteCode());
+        }
+        return options;
     }
 
     //get and set route id
@@ -75,15 +83,6 @@ public class Route extends Model {
 
     public void setDestination(String destination){
         this.destination = destination;
-    }
-
-    //Get and set cost
-    public double getCost(){
-        return cost;
-    }
-
-    public void setCost(double cost){
-        this.cost = cost;
     }
 
     //get and set flight_schedule

@@ -34,6 +34,16 @@ public class Aircraft extends Model {
         return Aircraft.find.all();
     }
 
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap<>();
+
+        // Get all aircrafts from the DB and add to the options Hash map
+        for(Aircraft a: Aircraft.findAll()) {
+            options.put(Integer.toString(a.getAircraftID()), a.getAircraftNumber());
+        }
+        return options;
+    }
+
     public int getAircraftID(){
         return aircraft_ID;
     }
