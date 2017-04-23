@@ -8,7 +8,7 @@ import filters.ExampleFilter;
 
 /**
  * This class configures filters that run on every request. This
- * class is queried by Play to get a list of filters.
+ * class is queried by Play to get a displayFlights of filters.
  *
  * Play will automatically use filters from any class called
  * <code>Filters</code> that is placed the root package. You can load filters

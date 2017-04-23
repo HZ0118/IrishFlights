@@ -11,7 +11,7 @@ import com.avaje.ebean.*;
 @Entity
 public class Route extends Model {
     @Id
-    private int route_ID;
+    private Long route_ID;
     private String route_code;
     private String airport;
     private String destination;
@@ -22,7 +22,7 @@ public class Route extends Model {
     public Route(){
     }
 
-    public Route(int id, String code, String airport, String destination, List<FlightSchedule> flight_schedule){
+    public Route(Long id, String code, String airport, String destination, List<FlightSchedule> flight_schedule){
         this.route_ID = id;
         this.route_code = code;
         this.airport = airport;
@@ -30,7 +30,7 @@ public class Route extends Model {
         this.flight_schedule = flight_schedule;
     }
 
-    public static Finder<Integer, Route> find = new Finder<Integer, Route>(Route.class);
+    public static Finder<Long, Route> find = new Finder<Long, Route>(Route.class);
 
     public static List<Route> findAll(){
 
@@ -42,18 +42,18 @@ public class Route extends Model {
 
         // Get all categories from the DB and add to the options Hash map
         for(Route r: Route.findAll()) {
-            options.put(Integer.toString(r.getRouteID()), r.getRouteCode());
+            options.put(Long.toString(r.getRouteID()), r.getRouteCode());
         }
         return options;
     }
 
     //get and set route id
-    public int getRouteID(){
+    public Long getRouteID(){
 
         return route_ID;
     }
 
-    public void setRouteID(int id){
+    public void setRouteID(Long id){
 
         this.route_ID = id;
     }

@@ -18,27 +18,26 @@
             <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
-    <body>
+    <body style = "background-image: url(@routes.Assets.versioned("images/back.jpg")")>
         <nav>
             <a href="@routes.HomeController.index()">
-                <img src="@routes.Assets.versioned("images/logo1.png")"/>
+                <img src="@routes.Assets.versioned("images/logo.png")"/>
             </a>
             <ul id="mainNav">
                 <li @if(title =="Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                 <li @if(title =="Flight"){class="active"}><a href="@routes.FlightsController.flights()">Flight</a></li>
                 <li @if(title =="Aircraft"){class="active"}><a href="@routes.AircraftController.aircrafts()">Aircraft</a></li>
-                <li @if(title =="Transaction"){class="active"}>
-                    <a href="@routes.ShoppingController.showBasket()">My Bookings
-                        <span class="glyphicon glyphicon-shopping-cart"></span></a></li>
+                <li @if(title =="Transaction"){class="active"}><a href="@routes.ShoppingController.showBasket()">My Bookings
                 <li @if(title =="Discount"){class="active"}><a href="#">Discounts</a></li>
             </ul>
             <ul id="rightNav">
-                <li @if(title =="Signup"){class="active"}><a href="@routes.RegistrationController.Registration()"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li @if(title =="Signup"){class="active"}>
+                    <a href="@routes.RegistrationController.Registration()">Sign Up</a></li>
                 <li @if(title =="Login"){class="active"}>
                     @if(user != null){
                         <a href="@routes.LoginController.logout()">Logout @user.getName()</a>
                     } else {
-                        <a href="@routes.LoginController.login()"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                        <a href="@routes.LoginController.login()">Login</a>
                     }
                 </li>
             </ul>
@@ -47,13 +46,13 @@
             <img src="@routes.Assets.versioned("images/banner.jpg")" width="100%"/>
         </div>
 
-
         <div class="container text-center">
             @* And here's where we render the `Html` object containing
             * the page content. *@
             @content
         </div>
-        <footer class="container-fluid">
-        </footer>
+        <!---<footer class="container-fluid">
+            <p>2017 &copy Irish Flights. All rights reserved</p>
+        </footer>-->
     </body>
 </html>

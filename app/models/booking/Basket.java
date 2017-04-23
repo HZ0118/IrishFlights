@@ -41,7 +41,7 @@ public class Basket extends Model {
             }
         }
         if (itemFound == false) {
-            // Add orderItem to list
+            // Add orderItem to displayFlights
             OrderItem newItem = new OrderItem(f);
             // Add to items
             basketItems.add(newItem);
@@ -50,8 +50,8 @@ public class Basket extends Model {
 
     public void removeItem(OrderItem item) {
 
-        // Using an iterator ensures 'safe' removal of list objects
-        // Removal of list items is unreliable as index can change if an item is added or removed elsewhere
+        // Using an iterator ensures 'safe' removal of displayFlights objects
+        // Removal of displayFlights items is unreliable as index can change if an item is added or removed elsewhere
         // iterator works with an object reference which does not change
         for (Iterator<OrderItem> iter = basketItems.iterator(); iter.hasNext();) {
             OrderItem i = iter.next();
@@ -65,7 +65,7 @@ public class Basket extends Model {
                 else {
                     // delete object from db
                     i.delete();
-                    // remove object from list
+                    // remove object from displayFlights
                     iter.remove();
                     break;
                 }

@@ -26,7 +26,7 @@ create table flight_schedule (
   arrival_time                  varchar(255),
   price                         double,
   aircraft_aircraft_id          bigint,
-  routes_route_id               integer,
+  routes_route_id               bigint,
   constraint pk_flight_schedule primary key (flight_id)
 );
 create sequence flight_schedule_seq;
@@ -43,7 +43,7 @@ create table order_item (
 create sequence order_item_seq;
 
 create table route (
-  route_id                      integer not null,
+  route_id                      bigint not null,
   route_code                    varchar(255),
   airport                       varchar(255),
   destination                   varchar(255),

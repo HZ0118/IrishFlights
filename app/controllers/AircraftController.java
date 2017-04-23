@@ -25,7 +25,7 @@ public class AircraftController extends Controller{
 
     public Result aircrafts() {
         List<Aircraft> aircraftList = Aircraft.findAll();
-        return ok(aircraftsView.render(aircraftList, User.getUserById(session().get("email"))));
+        return ok(displayAircraft.render(aircraftList, User.getUserById(session().get("email"))));
     }
 
     public Result addAircraft(){
@@ -43,7 +43,7 @@ public class AircraftController extends Controller{
             newAircraft.save();
         }
         else if(newAircraft.getAircraftID() != null){
-            newAircraft.update();
+             newAircraft.update();
         }
         flash("success", "Aircraft " + newAircraft.getAircraftNumber() + " has been created");
         return redirect(controllers.routes.AircraftController.aircrafts());

@@ -25,7 +25,7 @@ public class FlightsController extends Controller {
 
     public Result flights() {
         List<FlightSchedule> flightsList = FlightSchedule.findAll();
-        return ok(list.render(flightsList, User.getUserById(session().get("email"))));
+        return ok(displayFlights.render(flightsList, User.getUserById(session().get("email"))));
     }
 
     public Result addFlight(){

@@ -3,14 +3,17 @@ main {
 }
 nav {
     height: 70px;
-    background-color: cornflowerblue;
+    background-color: darkblue;
 }
 
 nav img{
     width: auto;
-    height: 70px;
+    height: 60px;
     float: left;
-    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 20px;
 }
 
 #mainNav{
@@ -36,14 +39,14 @@ nav li {
 }
 
 nav ul li a {
-    display: inline-block;
     width: 100px;
     text-decoration: none;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
-    color: black;
+    color: white;
     text-align: center;
     line-height: 60px;
-    border-right: 1px solid black;
+    display:flex;
+    justify-content: space-around;
     padding-top: 10px;
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -56,4 +59,70 @@ nav ul li a:hover {
 
 nav li:last-child a {
     border-right: 0;
+}
+
+#intro {
+    padding: 50px 0;
+}
+
+div.polaroid {
+    width: 30%;
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-right: 25px;
+    float: left;
+}
+
+div.polaroid p {
+    padding: 15px 15px;
+}
+
+#moreFlights {
+    background-color: white;
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 16px 25px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+#moreFlights a {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+#moreFlights:hover {
+    background-color: #008CBA;
+    color: white;
+}
+
+html {
+    position: relative;
+    min-height:100%;
+}
+
+footer{
+    background-color: darkblue;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+    margin-top: 25px;
+}
+
+footer p {
+    padding-top: 25px;
+    padding-bottom:25px;
 }
