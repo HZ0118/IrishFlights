@@ -120,3 +120,15 @@ org.h2.message.DbException: The connection was not closed by the application and
 Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-192]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
 	... 78 more
+2017-04-24 19:36:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (ROUTE: ROUTE_ID BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."ROUTE"("ROUTE_ID","ROUTE_CODE","AIRPORT","DESTINATION")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-192]
+2017-04-24 19:36:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (ROUTE: ROUTE_ID BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."ROUTE"("ROUTE_ID","ROUTE_CODE","AIRPORT","DESTINATION")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-192]
+2017-04-24 20:33:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (FLIGHT_SCHEDULE: ROUTES_ROUTE_ID BIGINT)"; SQL statement:
+INSERT INTO "PUBLIC"."FLIGHT_SCHEDULE"("FLIGHT_ID","FLIGHT_DATE","DEPARTURE_TIME","ARRIVAL_TIME","PRICE","AIRCRAFT_AIRCRAFT_ID","ROUTES_ROUTE_ID")VALUES(?,?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6, ?7) [22018-192]
+2017-04-24 20:33:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Data conversion error converting "'' (FLIGHT_SCHEDULE: ROUTES_ROUTE_ID BIGINT)"; SQL statement:
+INSERT INTO "PUBLIC"."FLIGHT_SCHEDULE"("FLIGHT_ID","FLIGHT_DATE","DEPARTURE_TIME","ARRIVAL_TIME","PRICE","AIRCRAFT_AIRCRAFT_ID","ROUTES_ROUTE_ID")VALUES(?,?,?,?,?,?,?) -- (?1, ?2, ?3, ?4, ?5, ?6, ?7) [22018-192]
