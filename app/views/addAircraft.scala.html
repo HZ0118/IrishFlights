@@ -7,8 +7,10 @@
     <h3>Add a new Plane</h3>
 
     @form(action = routes.AircraftController.addAircraftSubmit(), 'class -> "form-horizontal", 'role -> "form"){
-        @inputText(addAircraftForm("Aircraft Number"), '_label -> "Aircraft Number", 'class -> "form-control")
-        @inputText(addAircraftForm("Capacity"), '_label -> "Capacity", 'class -> "form-control")
+        @inputText(addAircraftForm("aircraft_number"), '_label -> "Aircraft Number", 'class -> "form-control")
+        @inputText(addAircraftForm("capacity"), '_label -> "Capacity", 'class -> "form-control")
+
+        @inputText(addAircraftForm("aircraft_ID"), '_label -> "", 'hidden -> "hidden")
 
         <div class="actions">
             <input type="submit" value="Add Aircraft" class="btn btn-primary">

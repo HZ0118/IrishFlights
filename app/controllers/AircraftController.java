@@ -33,6 +33,9 @@ public class AircraftController extends Controller{
         return ok(addAircraft.render(addAircraftForm, User.getUserById(session().get("email"))));
     }
 
+    @Security.Authenticated(Secured.class)
+    @With(AuthAdmin.class)
+    @Transactional
     public Result addAircraftSubmit(){
         Form<Aircraft> newAircraftForm = formFactory.form(Aircraft.class).bindFromRequest();
         if(newAircraftForm.hasErrors()){
