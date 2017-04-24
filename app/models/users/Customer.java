@@ -23,18 +23,14 @@ public class Customer extends User {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<ShopOrder> orders;
 
-    @OneToMany
-    private List<models.Transaction> transaction;
-
     public Customer(){
 
     }
 
-    public Customer(String email, String name, String password, String address, String mobile, List<models.Transaction> transaction){
+    public Customer(String email, String name, String password, String address, String mobile){
         super(email,name,password);
         this.address = address;
         this.mobile = mobile;
-        this.transaction = transaction;
     }
 
     //get and set name
@@ -81,15 +77,6 @@ public class Customer extends User {
 
     public void setOrders(List<ShopOrder> orders) {
         this.orders = orders;
-    }
-
-    //get and set transaction
-    public List<models.Transaction> getTransaction(){
-        return transaction;
-    }
-
-    public void setTransaction(List<models.Transaction> transaction){
-        this.transaction = transaction;
     }
 
 }

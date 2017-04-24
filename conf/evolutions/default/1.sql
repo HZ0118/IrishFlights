@@ -59,15 +59,6 @@ create table shop_order (
 );
 create sequence shop_order_seq;
 
-create table transaction (
-  booking_id                    integer,
-  booking_date                  varchar(255),
-  departure_date                varchar(255),
-  ticket_type                   varchar(255),
-  customer_email                varchar(255),
-  flight_schedule_flight_id     integer
-);
-
 create table user (
   role                          varchar(255),
   email                         varchar(255) not null,
@@ -98,12 +89,6 @@ create index ix_order_item_flight_flight_id on order_item (flight_flight_id);
 alter table shop_order add constraint fk_shop_order_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
 create index ix_shop_order_customer_email on shop_order (customer_email);
 
-alter table transaction add constraint fk_transaction_customer_email foreign key (customer_email) references user (email) on delete restrict on update restrict;
-create index ix_transaction_customer_email on transaction (customer_email);
-
-alter table transaction add constraint fk_transaction_flight_schedule_flight_id foreign key (flight_schedule_flight_id) references flight_schedule (flight_id) on delete restrict on update restrict;
-create index ix_transaction_flight_schedule_flight_id on transaction (flight_schedule_flight_id);
-
 
 # --- !Downs
 
@@ -127,12 +112,6 @@ drop index if exists ix_order_item_flight_flight_id;
 alter table shop_order drop constraint if exists fk_shop_order_customer_email;
 drop index if exists ix_shop_order_customer_email;
 
-alter table transaction drop constraint if exists fk_transaction_customer_email;
-drop index if exists ix_transaction_customer_email;
-
-alter table transaction drop constraint if exists fk_transaction_flight_schedule_flight_id;
-drop index if exists ix_transaction_flight_schedule_flight_id;
-
 drop table if exists aircraft;
 drop sequence if exists aircraft_seq;
 
@@ -150,8 +129,6 @@ drop sequence if exists route_seq;
 
 drop table if exists shop_order;
 drop sequence if exists shop_order_seq;
-
-drop table if exists transaction;
 
 drop table if exists user;
 

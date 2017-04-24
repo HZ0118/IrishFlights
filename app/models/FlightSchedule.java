@@ -26,14 +26,11 @@ public class FlightSchedule extends Model {
     @ManyToOne
     private Route routes;
 
-    @OneToMany
-    private List<Transaction> transaction;
-
     public FlightSchedule(){
 
     }
 
-    public FlightSchedule(int id, String flight_date, String departure_time, String arrival_time, double cost, Aircraft aircraft, Route routes, List<Transaction> transaction){
+    public FlightSchedule(int id, String flight_date, String departure_time, String arrival_time, double cost, Aircraft aircraft, Route routes){
         this.flight_ID = id;
         this.flight_date = flight_date;
         this.departure_time = departure_time;
@@ -41,7 +38,6 @@ public class FlightSchedule extends Model {
         this.price = cost;
         this.aircraft = aircraft;
         this.routes = routes;
-        this.transaction = transaction;
     }
 
     public static Finder<Integer, FlightSchedule> find = new Finder<Integer,FlightSchedule>(FlightSchedule.class);
@@ -111,15 +107,6 @@ public class FlightSchedule extends Model {
 
     public void setRoutes(Route routes){
         this.routes = routes;
-    }
-
-    //get and set transaction
-    public List<Transaction> getTransaction(){
-        return transaction;
-    }
-
-    public void setTransaction(List<Transaction> transaction){
-        this.transaction = transaction;
     }
 
 }

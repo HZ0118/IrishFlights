@@ -42,7 +42,7 @@ public class Route extends Model {
 
         // Get all categories from the DB and add to the options Hash map
         for(Route r: Route.findAll()) {
-            options.put(Long.toString(r.getRouteID()), r.getRouteCode());
+            options.put(r.getRouteID().toString(), r.getRouteCode());
         }
         return options;
     }

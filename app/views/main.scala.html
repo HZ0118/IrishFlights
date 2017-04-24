@@ -27,8 +27,7 @@
                 <li @if(title =="Home"){class="active"}><a href="@routes.HomeController.index()">Home</a></li>
                 <li @if(title =="Flight"){class="active"}><a href="@routes.FlightsController.flights()">Flight</a></li>
                 <li @if(title =="Aircraft"){class="active"}><a href="@routes.AircraftController.aircrafts()">Aircraft</a></li>
-                <li @if(title =="Transaction"){class="active"}><a href="@routes.ShoppingController.showBasket()">My Bookings
-                <li @if(title =="Discount"){class="active"}><a href="#">Discounts</a></li>
+                <li @if(title =="Transaction"){class="active"}><a href="@routes.ShoppingController.showBasket()">My Bookings</a></li>
             </ul>
             <ul id="rightNav">
                 <li @if(title =="Signup"){class="active"}>
@@ -51,8 +50,8 @@
             * the page content. *@
             @content
         </div>
-        <!---<footer class="container-fluid">
+        <footer class="container-fluid">
             <p>2017 &copy Irish Flights. All rights reserved</p>
-        </footer>-->
+        </footer>
     </body>
 </html>
